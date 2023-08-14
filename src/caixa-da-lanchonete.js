@@ -38,23 +38,21 @@ class CaixaDaLanchonete {
 
             produtos.push(item[0].trim());
             qtde.push(item[1].trim());
-        }
 
-        for (const j in produtos) {
-            if (!Object.keys(mockTabela).includes(produtos[j])) {
+            if (!Object.keys(mockTabela).includes(produtos[i])) {
                 return "Item inválido!";
             }
 
-            if (produtos[j].endsWith("1") || produtos[j].endsWith("2") || produtos[j] == "chantily" || produtos[j] == "queijo") {
+            if (produtos[i].endsWith("1") || produtos[i].endsWith("2") || produtos[i] == "chantily" || produtos[i] == "queijo") {
                 flagCombo += 1;
-                flagExtra.push(produtos[j]);
+                flagExtra.push(produtos[i]);
             }
 
-            if (qtde[j] == 0) {
+            if (qtde[i] == 0) {
                 return "Quantidade inválida!"
             } 
 
-            let valor = mockTabela[produtos[j]][1] * qtde[j];
+            let valor = mockTabela[produtos[i]][1] * qtde[i];
             valorTotal += valor;
         }
 
